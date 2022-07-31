@@ -4,39 +4,38 @@
 
 Code used in the data calculation:
 
-1. `cal_column_concentration.py`: calculate thec total column concentration of simulated NH3, output in [*concentration_month*](#concentration_month).
-2. `cal_GFAS_emi.m`: calculate annual mean of the NH3 emissions in GFAS (0.1°×0.1°), used in [*GFAS*](#GFAS).
-3. `cal_IASI_01_emission_12h.m`: calculate the IASI (0.01°×0.01°) emissions by fixed lifetime (12h), used in [*ANNI-NH3*](#ANNI-NH3).
+1. `cal_column_concentration.py`: calculate thec total column concentration of simulated NH3, output in [*GEOS-Chem*](#geos-chem).
+2. `cal_GFAS_emi.m`: calculate annual mean of the NH3 emissions in GFAS (0.1°×0.1°), used in [*GFAS*](#gfas).
+3. `cal_IASI_01_emission_12h.m`: calculate the IASI (0.01°×0.01°) emissions by fixed lifetime (12h), used in [*IASI*](#iasi).
 4. `cal_mod_t.m`: calculate the lifetime (𝜏) of NH3 from GEOS-Chem NH3 total column concentration and the total deposition fluxes.
-5. `cal_OMPS_SO2.m`: % calculate the OMPS (1°×1°) SO2 concentrations, used in [*OMPS*](#OMPS).
-6. `cal_opt_chem_emission.m`: calculate the annual averaged emission of prior and optimization with uncertainty and sensitivity (without ocean), output in [*Results*](#Results).
-7. `cal_SO2_trend_regional.m`: calculate the trend of simulated SO2 concentrations, used in [*GEOS-Chem*](#GEOS-Chem).
-8. `cal_uncertainty_IASI.m`: calculate the uncertainty of IASI concentrations to emission results
-clear all, output in [*uncertainty*](#uncertainty).
+5. `cal_OMPS_SO2.m`: % calculate the OMPS (1°×1°) SO2 concentrations, used in [*OMPS*](#omps).
+6. `cal_opt_chem_emission.m`: calculate the annual averaged emission of prior and optimization with uncertainty and sensitivity (without ocean), output in [*Results*](#results).
+7. `cal_SO2_trend_regional.m`: calculate the trend of simulated SO2 concentrations, used in [*GEOS-Chem*](#geos-chem).
+8. `cal_uncertainty_IASI.m`: calculate the uncertainty of IASI concentrations to emission results.
 9. `cal_uncertainty_lifetime.m`: calculate the uncertainty of modelled lifetime to emission results, has been written into Code **6**.
 10. `cal_uncertainty_number.m`: calculate the uncertainty of number of retrievals to emission results, has been written into Code **6**.
 11. `cal_uncertainty_trans_emi_r.m`: calculate the uncertainty of transportation/emission ratio to emission results, has been written into Code **x**.
-12. `cal_validation_model_ground.py`: calculate the validation of model simulations against ground-based observations, output in [*Results*](#Results).
-13. `map_IASI_emi_filter_n_est2.m`: calculate mean spatial distribution of IASI emissions, output in [*Results*](#Results).
-14. `map_lifetime_nh3.m`: calculate mean spatial distribution of GEOS-Chem lifetime (NH3), output in [*Budget*](#Budget).
-15. `map_niko_nh3_emi_mean.m`: calculate mean spatial distribution of NH3 emissions from Nikolaos over 2008-2016, output in [*Nikolaos*](#Nikolaos).
+12. `cal_validation_model_ground.py`: calculate the validation of model simulations against ground-based observations, output in [*Results*](#results).
+13. `map_IASI_emi_filter_n_est2.m`: calculate mean spatial distribution of IASI emissions, output in [*Results*](#results).
+14. `map_lifetime_nh3.m`: calculate mean spatial distribution of GEOS-Chem lifetime (NH3), output in [*GEOS-Chem*](#geos-chem).
+15. `map_niko_nh3_emi_mean.m`: calculate mean spatial distribution of NH3 emissions from Nikolaos over 2008-2016, output in [*Nikolaos*](#nikolaos).
 
 ### Data: data processing
 
 Code used in the data processing:
 
-1. `data_check.py`: check the missing file of the IASI daily datasets, used in [*IASI/daily*](#IASI).
-2. `data_colormap.py`: export the colormap in Python, output in [*colormap*](#colormap).
-3. `data_download_era5.py`: export the command of downloading IASI daily data, output in [*IASI/daily*](#IASI).
-4. `data_filter_IASI_daily.py`: filter the IASI daily concentration data by cloud fraction and skin temperature data, output in [*IASI/IASI_filter*](#IASI).
-5. `data_results_to_nc.m`: export the NH3 emission results, output in [*Results*](#Results).
-6. `pre_bpch_to_nc.py`: convert the individual bpch file to nc, output in [*GEOS-Chem*](#GEOS-Chem).
-7. `pre_ceds_sectors.py`: extract the CEDS data (nc format), output in [*CEDS*](#CEDS).
-8. `pre_CEDS_to_nc.py`: extract the national NH3 emissions from CEDS to nc, output in [*CEDS*](#CEDS).
-9. `pre_emission_to_nc.py`: extract the NH3 emissions from HEMCO to nc, output in [*GEOS-Chem*](#GEOS-Chem).
-10. `pre_FAO_N_fertilizer_use.py`: extract the national N fertilizer use to nc, output in [*FAO*](#FAO).
-11. `pre_FAO_N_manure.py`: extract the national N manure management to nc, output in [*FAO*](#FAO).
-12. `pre_ground_AMoN_NH3.py`/`pre_ground_EANET_NH3.py`/`pre_ground_EMEP_NH3`: extract the groud based (EMEP, EANET, AMoN) NH3 to csv file, output in [*Ground*](#Ground).
+1. `data_check.py`: check the missing file of the IASI daily datasets, used in [*IASI*](#iasi).
+2. `data_colormap.py`: export the colormap in Python, output in [*Colormap*](#colormap).
+3. `data_download_era5.py`: export the command of downloading IASI daily data, output in [*IASI/daily*](#iasi).
+4. `data_filter_IASI_daily.py`: filter the IASI daily concentration data by cloud fraction and skin temperature data, output in [*IASI*](#iasi).
+5. `data_results_to_nc.m`: export the NH3 emission results, output in [*Results*](#results).
+6. `pre_bpch_to_nc.py`: convert the individual bpch file to nc, output in [*GEOS-Chem*](#geos-chem).
+7. `pre_ceds_sectors.py`: extract the CEDS data (nc format), output in [*CEDS*](#ceds).
+8. `pre_CEDS_to_nc.py`: extract the national NH3 emissions from CEDS to nc, output in [*CEDS*](#ceds).
+9. `pre_emission_to_nc.py`: extract the NH3 emissions from HEMCO to nc, output in [*GEOS-Chem*](#geos-chem).
+10. `pre_FAO_N_fertilizer_use.py`: extract the national N fertilizer use to nc, output in [*FAO*](#fao).
+11. `pre_FAO_N_manure.py`: extract the national N manure management to nc, output in [*FAO*](#fao).
+12. `pre_ground_AMoN_NH3.py`/`pre_ground_EANET_NH3.py`/`pre_ground_EMEP_NH3`: extract the groud based (EMEP, EANET, AMoN) NH3 to csv file, output in [*Ground*](#ground).
 13. `submit.filter.geos`: submit the GEOS-Chem simulation task.
    
 ### Plot: figure drawing
