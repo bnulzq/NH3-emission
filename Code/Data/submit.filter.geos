@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#$ -N GCRUN
+#$ -o out.log
+#$ -j yes
+#$ -cwd 
+#$ -q mc.q,normal.q,serial.q 
+#$ -pe thread 24
+#$ -S /bin/bash 
+
+# Load your environment settings
+source ~/.bash_profile
+source ~/envset/geoschem_profile
+
+# Declare that we would like to run GEOS-Chem with 16 cores
+# (change this for your system)
+export OMP_NUM_THREADS=24
+
+# Max out the stack memory for the simulation.
+# If your system has less than 500 MB then it should still
+# give you the max amount available, which should be sufficient.
+export OMP_STACKSIZE=500m
+
+# Run the GEOS-Chem executable, and pipe output to a log file
+/pdiskdata/zhangyuzhonggroup/luozhenqi/GEOS-Chem/2013Output/merra2_4x5_tropchem/geos >> GC.log
