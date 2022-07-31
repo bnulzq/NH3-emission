@@ -4,11 +4,11 @@
 
 Code used in the data calculation:
 
-1. `cal_column_concentration.py`: calculate thec total column concentration of simulated NH3, output in [*GEOS-Chem*](#geos-chem).
+1. `cal_column_concentration.py`: calculate the total column concentration of simulated NH3, output in [*GEOS-Chem*](#geos-chem).
 2. `cal_GFAS_emi.m`: calculate annual mean of the NH3 emissions in GFAS (0.1°×0.1°), used in [*GFAS*](#gfas).
 3. `cal_IASI_01_emission_12h.m`: calculate the IASI (0.01°×0.01°) emissions by fixed lifetime (12h), used in [*IASI*](#iasi).
 4. `cal_mod_t.m`: calculate the lifetime (𝜏) of NH3 from GEOS-Chem NH3 total column concentration and the total deposition fluxes.
-5. `cal_OMPS_SO2.m`: % calculate the OMPS (1°×1°) SO2 concentrations, used in [*OMPS*](#omps).
+5. `cal_OMPS_SO2.m`: % calculate the OMPS (1°×1°) SO2 concentrations, used in [*SO2*](#so2).
 6. `cal_opt_chem_emission.m`: calculate the annual averaged emission of prior and optimization with uncertainty and sensitivity (without ocean), output in [*Results*](#results).
 7. `cal_SO2_trend_regional.m`: calculate the trend of simulated SO2 concentrations, used in [*GEOS-Chem*](#geos-chem).
 8. `cal_uncertainty_IASI.m`: calculate the uncertainty of IASI concentrations to emission results.
@@ -35,9 +35,9 @@ Code used in the data processing:
 9. `pre_emission_to_nc.py`: extract the NH3 emissions from HEMCO to nc, output in [*GEOS-Chem*](#geos-chem).
 10. `pre_FAO_N_fertilizer_use.py`: extract the national N fertilizer use to nc, output in [*FAO*](#fao).
 11. `pre_FAO_N_manure.py`: extract the national N manure management to nc, output in [*FAO*](#fao).
-12. `pre_ground_AMoN_NH3.py`/`pre_ground_EANET_NH3.py`/`pre_ground_EMEP_NH3`: extract the groud based (EMEP, EANET, AMoN) NH3 to csv file, output in [*Ground*](#ground).
+12. `pre_ground_AMoN_NH3.py`/`pre_ground_EANET_NH3.py`/`pre_ground_EMEP_NH3`: extract the ground based (EMEP, EANET, AMoN) NH3 to csv file, output in [*Ground*](#ground).
 13. `submit.filter.geos`: submit the GEOS-Chem simulation task.
-   
+
 ### Plot: figure drawing
 
 Code used in the figure plotting:
@@ -46,8 +46,8 @@ Code used in the figure plotting:
 2. `fig_comparison_model_iasi_validation.m`: joint the validation maps of modelled NH3 concentrations comparison with IASI observation into one figure.
 3. `fig_concentration_iasi_chem_mean_trend.m`: joint the maps of NH3 concentrations mean and trend from IASI and GEOS-Chem.
 4. `fig_emission_prior_optimized_mean_trend.m`: joint the maps of NH3 emission mean and trend from adjusted and GEOS-Chem.
-5. `fig_r_emi_trans_dep_mean.m`: joint the maps of ratio of transport(-) to deposition and transport(+) to emisssion.
-6. `fig_uncertainty_sensitivity_emi.m`: plot the maps of uincertainty and sensitivity for MH3 emission over 2008-2018.
+5. `fig_r_emi_trans_dep_mean.m`: joint the maps of ratio of transport(-) to deposition and transport(+) to emission.
+6. `fig_uncertainty_sensitivity_emi.m`: plot the maps of uncertainty and sensitivity for MH3 emission over 2008-2018.
 7. `fig_validation_ground_simulation.m`: joint the validation maps of modelled NH3 concentrations comparison with IASI observation.
 8. `figure_bar_agr_emi_region.py`: draw mean NH3 fertilizer and manure emissions from FAOSTAT over different regions.
 9. `figure_bar_ch4_livestock_regional.py`: draw mean CH4 livestock emissions over different regions.
@@ -91,13 +91,13 @@ Code used in the figure plotting:
 47. `map_CH4_livestock_mean.m`: draw mean spatial distribution of CH4 emission flux from livestock sources.
 48. `map_CH4_livestock_trend.m`: draw trend spatial distribution of CH4 emission flux from livestock sources.
 49. `map_chem_agri_mean.m`: draw mean spatial distribution of GEOS-Chem Agriculture emissions.
-50. `map_Chem_annual_mean.m`: draw annnual mean spatial distribution of GEOS-Chem simuilation.
+50. `map_Chem_annual_mean.m`: draw annual mean spatial distribution of GEOS-Chem simulation.
 51. `map_Chem_budget_mean.m`: draw mean spatial distribution of GEOS-Chem Budget.
 52. `map_chem_emission_mean.m`: draw mean spatial distribution of GEOS-Chem emissions (HEMCO_diagnostics_NH3).
 53. `map_Chem_lifetime_mean.m`: draw mean spatial distribution of GEOS-Chem lifetime (τ).
-54. `map_Chem_mean.m`: mean spatial distribution of GEOS-Chem simuilation.
+54. `map_Chem_mean.m`: mean spatial distribution of GEOS-Chem simulation.
 55. `map_Chem_monthly_trend.m`: draw monthly trend spatial distribution of GEOS-Chem simulation.
-56. `map_Chem_seasonal_mean.m`: draw seasonal mean spatial distribution of GEOS-Chem simuilation.
+56. `map_Chem_seasonal_mean.m`: draw seasonal mean spatial distribution of GEOS-Chem simulation.
 57. `map_Chem_seasonal_trend.m`: draw seasonal trend spatial distribution of GEOS-Chem simulation.
 58. `map_chem_t.m`: draw  mean spatial distribution of GEOS-Chem τ.
 59. `map_corr_diff_emission.m`: draw spatial correlations between seasonal mean difference of IASI and GEOS-Chem.
@@ -116,8 +116,8 @@ Code used in the figure plotting:
 72. `map_emission_season_mean.m`: draw seasonal mean spatial distribution of GEOS-Chem NH3 emissions.
 73. `map_emission_season_trend.m`: draw seasonal trend spatial distribution of GEOS-Chem NH3 emissions.
 74. `map_IASI_01.m`: draw mean spatial distribution of Van Dammes's IASI (0.01°×0.01°) NH3 concentration over 2008-2016.
-75. `map_IASI_annual_mean.m`: draw annnual mean spatial distribution of IASI NH3 concentration.
-76. `map_IASI_Chem_mean_diff_seasonal.m`: draw seasonal mean  spatial distribution of NH3 concentration difference between GEOS-Chem simuilation and IASI. 
+75. `map_IASI_annual_mean.m`: draw annual mean spatial distribution of IASI NH3 concentration.
+76. `map_IASI_Chem_mean_diff_seasonal.m`: draw seasonal mean  spatial distribution of NH3 concentration difference between GEOS-Chem simulation and IASI. 
 77. `map_iasi_chem_mean_regional.m`: draw regional mean difference between IASI and GEOS-Chem monthly data.
 78. `map_iasi_chem_trend_regional.m`: draw regional trend difference between IASI and GEOS-Chem monthly data.
 79. `map_IASI_daily_retrieval_n_monthly_mean.m`: draw monthly mean spatial distribution of number of retrievals for IASI.
@@ -140,11 +140,11 @@ Code used in the figure plotting:
 
 Code used in the self-defined functions:
 
-1. `country`: bounday of the countries.
+1. `country`: boundary of the countries.
 2. `m_map`: Matlab map function.
 3. `Domain.m`: assign values to specific domain.
 4. `Extract_season_year.m`: convert monthly data into seasonal data.
-5. `MapReclass.m`: reclass the landcover class of the map.
+5. `MapReclass.m`: reclass the land cover class of the map.
 6. `MaskOcean_1x1.m`/`MaskOcean_4x5.m`: mask the ocean grids into 1x1/4x5 deg grid cells.
 7. `R2.m`: compute the correlation coefficient of two datasets.
 8. `Regrid4x5.m`: regrid the data into 4x5 deg grid cells.
