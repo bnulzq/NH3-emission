@@ -1,0 +1,88 @@
+% mean spatial distribution of CH4 emission flux from livestock sources
+clear all
+ 
+path = 'D:\data\methane\GlobalInv_livestock_nonwetland.nc';
+
+% import data
+% ocean
+map_land = ncread(['C:\Users\Administrator\Desktop\code\fun\MERRA2.20150101.CN.4x5.nc4'], 'FRLAND')';
+map_land(map_land < 0.2) = NaN;
+
+prior = ncread(path, 'prior_livestock')';
+post_fac = ncread(path, 'posterior_scaling_factor')';
+
+pri = prior .* (map_land > 0);
+pri(pri == 0) = nan;
+post = pri .* post_fac;
+
+% regridded lon and lat grid
+lon = ncread(['D:\data\IASI\filter\IASI_filter_AM_Cloud_10_200801.nc'], 'lon');
+lon = lon;
+lat = ncread(['D:\data\IASI\filter\IASI_filter_AM_Cloud_10_200801.nc'], 'lat');
+lat = lat;
+[x,y] = meshgrid((lon) , (lat));
+
+mul = 1E+11;
+max = 10; 
+
+% draw
+% fig prior
+fig = figure(1);
+set (gcf,'Position',[232,400,620,300]); %[left bottom width height]
+
+m_proj('Equidistant Cylindrical','lat',[-70,70],'lon',[-180,180]);
+m_coast('patch',[.6 .6 .6],'edgecolor',[.5,.5,.5]);
+m_grid('box', 'on', 'linestyle', 'none', 'FontWeight', 'bold', 'FontName', 'Times New Roman','fontsize', 15, 'LineWidth', 2);
+alpha(0)
+hold on
+
+sp = 30;
+[C,h] = m_contourf(x, y, pri*mul, 500);
+set(h,'LineColor','none');
+shp = shaperead('C:\Users\Administrator\Desktop\code\fun\country\country.shp');
+boundary_x=[shp(:).X];
+boundry_y=[shp(:).Y];
+m_plot(boundary_x , boundry_y , 'color' , 'k', 'LineWidth' , 1);
+caxis([0 max]);
+colormap(cool);
+
+cb = colorbar('eastoutside','fontsize',15,'FontName','Times New Roman' , 'FontWeight' , 'normal' ,'LineWidth' , 2);
+set(cb, 'YTick', 0:1:max);
+set (gca,'Position',[0.09,0.1,0.80,0.80])
+
+space(1 : 150) = 32; 
+title(strcat('CH4 Prior (10^{-11} kg/m^{2}/s)', space(1:sp), 'Livestock'), 'FontSize' , 15 , 'FontName' ,'Times New Roman'); 
+axis normal;
+f = gcf;
+exportgraphics(f,['C:\Users\Administrator\Desktop\output\CH4_prior_livestock.png'],'Resolution',300)
+
+% fig posterior
+fig = figure(2);
+set (gcf,'Position',[232,400,580,300]); %[left bottom width height]
+
+m_proj('Equidistant Cylindrical','lat',[-70,70],'lon',[-180,180]);
+m_coast('patch',[.6 .6 .6],'edgecolor',[.5,.5,.5]);
+m_grid('box', 'on', 'linestyle', 'none', 'FontWeight', 'bold', 'FontName', 'Times New Roman','fontsize', 15, 'LineWidth', 2);
+alpha(0)
+hold on
+
+sp = 30;
+[C,h] = m_contourf(x, y, post*mul, 500);
+set(h,'LineColor','none');
+shp = shaperead('C:\Users\Administrator\Desktop\code\fun\country\country.shp');
+boundary_x=[shp(:).X];
+boundry_y=[shp(:).Y];
+m_plot(boundary_x , boundry_y , 'color' , 'k', 'LineWidth' , 1);
+caxis([0 max]);
+colormap(cool);
+
+% cb = colorbar('eastoutside','fontsize',15,'FontName','Times New Roman' , 'FontWeight' , 'normal' ,'LineWidth' , 2);
+% set(cb, 'YTick', 0:1:max);
+set (gca,'Position',[0.09,0.1,0.85,0.80])
+
+space(1 : 150) = 32; 
+title(strcat('CH4 Posterior (10^{-11} kg/m^{2}/s)', space(1:sp), 'Livestock'), 'FontSize' , 15 , 'FontName' ,'Times New Roman'); 
+axis normal;
+f = gcf;
+exportgraphics(f,['C:\Users\Administrator\Desktop\output\CH4_post_livestock.png'],'Resolution',300)
+

@@ -1,0 +1,88 @@
+% seasonal trend spatial distribution of IASI daily filtered data
+clear all
+
+path = 'D:\data\IASI\filter\IASI_filter_AM_Cloud_10_';
+
+yr_sta = 2008;
+yr_end = 2018;
+yr = yr_sta:1:yr_end;
+yr_len = length(yr);
+season = [[1, 2, 3]; [4, 5, 6]; [7, 8, 9]; [10, 11, 12]]; 
+season_name = ['JFM'; 'AMJ'; 'JAS'; 'OND'];
+fig_name = ['(a)'; '(c)'; '(e)'; '(g)';];
+
+% import data
+
+for sea = 1:4
+    
+    mon = season(sea, :);
+    disp(['Season: ', season_name(sea, :)])
+
+    load([path, season_name(sea, :), '_IASI filter.mat']);
+
+    % trend
+    [tre_day, test_day]= Trend(fi_yr, 46, 72, yr_len);
+
+
+    % regridded lon and lat grid
+    lon = ncread(['D:\data\GEOS-Chem\concentration_month\GEOS-Chem_200801.nc'], 'lon');
+    lon = lon;
+    lat = ncread(['D:\data\GEOS-Chem\concentration_month\GEOS-Chem_200801.nc'], 'lat');
+    [x,y] = meshgrid((lon) , (lat));
+
+    nh3 = nanmean(fi_yr, 3);
+
+    mul = 1E-14*6.02214179E19;
+    p = 0.05;
+    max = 5;
+
+    % draw
+    fig = figure(sea);
+    set (gcf,'Position',[232,400,580,300]);
+
+    m_proj('Equidistant Cylindrical','lat',[-70,70],'lon',[-180,180]);
+    m_coast('patch',[.6 .6 .6],'edgecolor',[.5,.5,.5]);
+    m_grid('box', 'on', 'linestyle', 'none', 'FontWeight', 'bold', 'FontName', 'Times New Roman','fontsize', 15, 'LineWidth', 2);
+    alpha(0.5)
+    hold on
+
+    % day
+    [p_lat, p_lon] = find(test_day < p);
+    p_lat = lat(p_lat);
+    p_lon = lon(p_lon);
+
+    [C,h] = m_contourf(x, y, tre_day*mul, 100);
+    set(h,'LineColor','none');
+
+    m_scatter(p_lon, p_lat, 10,'filled', 'MarkerFaceColor', 'k', 'MarkerEdgeColor', 'k', 'Marker', '.') ;% mark the p 
+
+    shp = shaperead('C:\Users\Administrator\Desktop\code\fun\country\country.shp');
+    boundary_x=[shp(:).X];
+    boundry_y=[shp(:).Y];
+    m_plot(boundary_x , boundry_y , 'color' , 'k', 'LineWidth' , 1);
+    caxis([-max max]);
+    cmp = importdata('D:\data\\colormap\bwr.txt');
+    colormap(cmp(:,1:3));
+
+    space(1 : 150) = 32; 
+    %title(strcat('IASI (10^{-6} Mol m^{-2} yr^{-1})', space(1:30), season_name(sea,:), ' (', num2str(yr_sta), '-', num2str(yr_end), ')'), 'FontSize' , 15 , 'FontName' ,'Times New Roman'); 
+    text(-3, -1, fig_name(sea,:), 'FontSize' , 15 , 'FontName' ,'Times New Roman', 'FontWeight', 'bold')
+
+    if sea == 4
+
+        cb = colorbar('eastoutside','fontsize', 15,'FontName','Times New Roman' , 'FontWeight' , 'normal' ,'LineWidth' , 2);
+        set(cb, 'YTick', -max:2:max);
+        set (gca,'Position',[0.09,0.1,0.80,0.85])
+        set (gcf,'Position',[232,400,623.5,300]);
+
+     else
+        
+        set (gca,'Position',[0.09,0.1,0.86,0.85]) %[left bottom width height]
+    
+    end
+    axis normal;
+    %saveas(fig, ['C:\Users\Administrator\Desktop\output\IASI_', season_name(sea,:), '.svg'])
+    f = gcf;
+    exportgraphics(f,['C:\Users\Administrator\Desktop\output\IASI_', season_name(sea,:), '.png'],'Resolution',300)
+
+end
