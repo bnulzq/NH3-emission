@@ -4,7 +4,7 @@
 
 Available from CEDS, NH3 prior bottom-up emissions.
 
-**Note:**: Check the updated version of the datasets.
+**Note**: Check the updated version of the datasets.
 
 ### CH4
 
@@ -20,7 +20,7 @@ Colormaps used in the map converted from Python package.
 
 Available from EDGAR, anthropogenic emissions as BUE2. NH3 prior bottom-up emissions from 1970 to 2015.
 
-**Note:**: Check the updated version of the datasets.
+**Note**: Check the updated version of the datasets.
 
 ### ERA5_skin_temperature
 
@@ -74,7 +74,7 @@ GEOS-Chem simulations in selected years (2008, 2013, 2018) to examine the valida
 
 Ground-based NH3 concentration measurements, Available from AMoN: https://nadp.slh.wisc.edu/networks/ammonia-monitoring-network/, EMEP: http://ebas-data.nilu.no/, and EANET: https://www.eanet.asia/.
 
-**Note:**: The units of datasets are different, you need to convert µg m^−3^ to ppbv (I use a factor of 1.44 assuming 25 ℃ temperature and 1 atmosphere pressure).
+**Note**: The units of datasets are different, you need to convert µg m^−3^ to ppbv (I use a factor of 1.44 assuming 25 ℃ temperature and 1 atmosphere pressure).
 
 ### IASI
 
@@ -90,7 +90,7 @@ Available from https://iasi.aeris-data.fr/.
 
 When using it, make sure to contact Dr. Martin and ask cooperation.
 
-**Note:**: Check the updated version of the datasets.
+**Note**: Check the updated version of the datasets.
 
 ### IASI_filter
 
@@ -100,7 +100,7 @@ Monthly filtered data by cloud fraction greater than 10 % and skin temperature b
 
 Provided by Dr. Yuzhong. The map of the countries and regions all over the world and their corresponding iso3c/iso3n codes.
 
-**Note:**: Check the updated version of the country boundary.
+**Note**: Check the updated version of the country boundary.
 
 ### Nikolaos
 
