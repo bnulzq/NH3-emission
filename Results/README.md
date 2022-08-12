@@ -38,3 +38,5 @@ Dr. Yuzhong Zhang (zhangyuzhong@westlake.edu.cn) and Zhenqi Luo (zl725@cornell.e
 ## Citation
 
 Zhenqi Luo, & Yuzhong Zhang. (2022). Estimating global ammonia (NH3) emissions based on IASI observations from 2008 to 2018 (1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6969734
+
+Luo, Z., Zhang, Y., Chen, W., Van Damme, M., Coheur, P.-F., and Clarisse, L.: Estimating global ammonia (NH3) emissions based on IASI observations from 2008 to 2018, Atmos. Chem. Phys., 22, 10375–10388, https://doi.org/10.5194/acp-22-10375-2022, 2022.
