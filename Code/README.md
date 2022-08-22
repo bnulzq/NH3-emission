@@ -14,7 +14,7 @@ Code used in the data calculation:
 8. `cal_uncertainty_IASI.m`: calculate the uncertainty of IASI concentrations to emission results.
 9. `cal_uncertainty_lifetime.m`: calculate the uncertainty of modelled lifetime to emission results, has been written into Code **6**.
 10. `cal_uncertainty_number.m`: calculate the uncertainty of number of retrievals to emission results, has been written into Code **6**.
-11. `cal_uncertainty_trans_emi_r.m`: calculate the uncertainty of transportation/emission ratio to emission results, has been written into Code **x**.
+11. `cal_uncertainty_trans_emi_r.m`: calculate the uncertainty of transportation/emission ratio to emission results, has been written into Code **6**.
 12. `cal_validation_model_ground.py`: calculate the validation of model simulations against ground-based observations, output in [*Results*](#results).
 13. `map_IASI_emi_filter_n_est2.m`: calculate mean spatial distribution of IASI emissions, output in [*Results*](#results).
 14. `map_lifetime_nh3.m`: calculate mean spatial distribution of GEOS-Chem lifetime (NH3), output in [*GEOS-Chem*](#geos-chem).
