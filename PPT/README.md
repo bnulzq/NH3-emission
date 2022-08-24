@@ -1,6 +1,9 @@
+
 The progress and meeting of the project, including some results and literature.
 
 ### Group meeting
+
+PPT used in the group meeting presentation:
 
 1. **10.30**: study of N2O emission, including sources and bomas in Africa.
 2. **11.19**：study of estimating the global satellite-derived surface NH3 concentration.
@@ -14,6 +17,8 @@ The progress and meeting of the project, including some results and literature.
 10. **6.11**: study of NH3 concentration validation and trend. 
 
 ### Progress
+
+PPT used in the 1:1 meeting presentation:
 
 1. **knowle_nitrogen_cycle**: Knowledge ofv the Nitrogen Cycle.
 2. **method**: equations used in the study.
