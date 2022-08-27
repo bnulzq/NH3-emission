@@ -15,8 +15,6 @@ https://doi.org/10.5194/acp-22-10375-2022) and please feel free to contact me by
 
 **[PPT](#ppt)**
 
-**[Ref](#ref)**
-
 **[Results](#results)**
 
 **[Next Steps, Credits, Feedback, License](#next-steps-credits-feedback-license)**
