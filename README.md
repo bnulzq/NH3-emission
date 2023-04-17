@@ -336,7 +336,7 @@ PPT used in the 1:1 meeting presentation:
 
 ### Data Description
 
-The dataset ia produced based on the Infrared Atmospheric Sounding Interferometer (IASI) observations in Luo et al.,(2022), by updating the prior ammonia (NH3) emission fluxes with the ratio between biases in simulated NH3 concentrations and effective NH3 lifetimes against the loss of the NHx family (NHx $\equiv$ NH3 + $NH_4^+$). We then include sulfur dioxide (SO2) column to correct the NH3 emission trends over India and China, where SO2 emissions have changed rapidly in recent years. Finally, we quantify the uncertainty of NH3 emission by a series of perturbation and sensitivity experiments. The GEOS-Chem simulation driven by top-down estimates has lower bias with the IASI observations than prior emissions, demonstrating the consistency of our estimates with observations.
+The dataset is produced based on the Infrared Atmospheric Sounding Interferometer (IASI) observations in Luo et al.,(2022), by updating the prior ammonia (NH3) emission fluxes with the ratio between biases in simulated NH3 concentrations and effective NH3 lifetimes against the loss of the NHx family (NHx $\equiv$ NH3 + $NH_4^+$). We then include sulfur dioxide (SO2) columns to correct the NH3 emission trends over India and China, where SO2 emissions have changed rapidly in recent years. Finally, we quantify the uncertainty of NH3 emission by a series of perturbation and sensitivity experiments. The GEOS-Chem simulation driven by top-down estimates has lower bias with the IASI observations than prior emissions, demonstrating the consistency of our estimates with observations.
 
 ### Metadata
 
